@@ -53,24 +53,20 @@
     <main style="padding: 3rem">
       <div class="row">
         <div ass="col-md-12">
-          <a
-            class="btn btn-lg btn-google"
+          <a class="btn btn-lg btn-google"
             style="
               padding: 0.15rem 0.4rem;
               background-color: rgb(7, 7, 7);
               color: rgb(255, 255, 255);
-            "
-            href="/auth/google"
-            ><img
-              src="https://img.icons8.com/color/16/000000/google-logo.png"
-            />
-            Login with Google</a
-          >
+            "href="#"> <!--The route is for the google authentication using passport.js-->
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png"/>
+            Login with Google
+          </a>
         </div>
       </div> 
       <br />
-      <h4>Or... you have an account. Login here:</h2>
-      <form  action="/auth/login" method="POST">
+      <h4>If you have an account. Login here:</h2>
+      <form  action="#" method="POST"> <!--The route is for the authentication from our local database-->
 
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
