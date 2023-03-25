@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <title>Post</title>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <main style="padding: 3rem">
+      <%- include ("partials/message") %>
+      <form action="/profile/post" method="POST">
+        <div class="form-group">
+          <label for="exampleforTitle">Make</label>
+          <input
+            name="make"
+            type="text"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleforType">Type</label>
+          <input
+            name="type"
+            type="text"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleforType">Year</label>
+          <input
+            name="year"
+            type="text"
+            class="form-control"
+          />
+          <div class="form-group">
+            <label for="exampleforType">Price</label>
+            <input
+              name="price"
+              type="text"
+              class="form-control"/>
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
