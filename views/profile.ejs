@@ -10,16 +10,33 @@
     <img src="<%= user.thumbnail %>" alt="" />
     <p><%= user.googleID %></p>
     <p><%= user.date %></p>
-
+    <div class="container">
     <% if (posts.length > 0) { %> <% for (let i = 0; i < posts.length; i++) { %>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title"><%= posts[i].make %></h5>
-        <p class="card-text"><%= posts[i].type %></p>
-        <p class="card-text"><%= posts[i].year %></p>
-        <p class="card-text"><%= posts[i].price %></p>
-      </div>
-    </div>
+    
+    
+ 
+      <div class="row">
+          <div class="card md-4">
+            <div class="card-body">      
+              <p class="card-text"><b>Make:</b> <%= posts[i].make %></p>
+              <p class="card-text"><b>Model:</b> <%= posts[i].model %></p>
+              <p class="card-text"><b>Year:</b> <%= posts[i].year %></p>
+              <p class="card-text"><b>Price:</b> $<%= posts[i].price %></p>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Sold
+                </label>
+              </div>
+              <form action="/profile/delete/<%= posts[i].id%>" method="POST" >
+                <input type="hidden" name="_method" value="DELETE" />
+              <button type="submit"  class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      
     <% } %> <% } %>
+  </div>
   </body>
 </html>

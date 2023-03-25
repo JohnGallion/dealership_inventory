@@ -5,17 +5,88 @@
     <title>Home</title>
   </head>
   <body>
+    <style>
+    body {
+      font-family: monospace;
+      /* width: 100vh;
+      height:100vh; */
+      background-image: url("./assets/background.jpg");
+      background-size: cover; /* or "contain" depending on what you want */
+      background-position: center center;
+      background-repeat: no-repeat;
+      text-align:center;
+      
+      padding:0;
+    }
+  
+  .navbar-brand {
+      font-family: cursive;
+  }
+  </style>
     <%- include ("partials/nav") %>
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">
-          Full Stack Project  - A site for Dealerships to keep track of their inventory
-        </h1>
-        <p class="col-md-8 fs-4">
-          THe Project mainly focuses on backend: postgres, sequelize, express ,Passport.js, etc 
-        </p>
-          <a href="/auth/signup" class="btn btn-primary btn-lg"> start now </a>
+    <div class="card" style="margin-bottom: 4rem">
+      <h1 class="card-title">Welcome to Inventory Lab!</h1>
+      <p class="card-text">Your one stop shop for Automobile inventory control.</p>
+      <hr class="my-4">
+    </div>
+   
+
+     
+    <div class="container">
+      <div class="row justify-items-center" style="margin-bottom: 4rem;">
+        <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="card text-center md-4">
+              <div class="card-body">
+                  <h2 class="card-title">Login or sign up for a free account.</h2>
+                <p class="lead">
+                  <a id="login" class="btn btn-secondary btn-md" href="/auth/login" role="button">login</a>
+                  <a id="signup" class="btn btn-secondary btn-md" href="/auth/signup" role="button">Sign up</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container">
+      <div class="row justify-items-center">
+        
+        <div class="col-md-4">
+          <div class="card md-4" style="height: 100%;">
+            <div class="card-body">
+              <h2 class="card-title">Secure Login</h2>
+              <hr class="my-4">
+              <p class="card-text">Control who has access to your inventory with password hashing.</p>
+              <a href="#" class="btn btn-secondary btn-md">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card md-4" style="height: 100%;">
+            <div class="card-body">
+              <h2 class="card-title">Edit Inventory</h2>
+              <hr class="my-4">
+              <p class="card-text">Keep your inventory up to date With the ability to edit the mileage and price of your vehicles.</p>
+              <a href="#" class="btn btn-secondary btn-md">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Reliable Database</h2>
+              <hr class="my-4">
+              <p class="card-text">Our software uses powerful reliable languages to ensure you alwasy have access to your inventory when you need it.</p>
+              <a href="#" class="btn btn-secondary btn-md">Learn more</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </body>
+  
+
+</div>
+</body>
 </html>

@@ -45,7 +45,7 @@ router.post("/delete/:id", authCheck, async (req, res) => {
       id: req.params.id
     }
   });
-res.redirect("/")
+res.redirect("/profile")
 
 })
   
