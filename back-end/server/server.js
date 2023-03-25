@@ -4,9 +4,13 @@ const bodyParser = require("body-parser");
 const app = express();
 const logger = require('./logger');
 const ejs = require('ejs');
-const {Sequelize} = require('sequelize');
+const sequelize = require('sequelize');
+const cars = require('../cardb/models')
+const db = require('../cardb/models')
+const make= require('../cardb/models')
+app.use(bodyParser.json())
 
-
+app.set('view engine', 'ejs')
 
 // logger function
 app.all('*', (req, res, next) => {
@@ -21,16 +25,37 @@ logger.info({
 })
 
 //inventory DB endpoints
-app.get('/inventory', (req, res) => {
-    res.send('inventory get endpoint called')
+app.get('/inventory', async (req, res) => {
+    const carList = await db.cars.findAll();
+    //const cararr = Array.from(carList)
+    res.render('inventory', {list : carList})
+    //res.send(carList)
 })
 
-app.post('/inventory', (req, res) => {
-    res.send('inventory post endpoint called')
+app.post('/inventory', async (req, res) => {
+    const carList = await db.cars.findAll();
+
+    await db.cars.create({
+        make: req.body.make,
+        model: req.body.model,
+        year: req.body.year,
+        mileage: req.body.mileage,
+        price: req.body.price
+    } )
+    res.render('inventory', {list : carList} )
+    //res.send('new car added to DB')
 })
 
-app.delete('/inventory/delete/:id', (req, res) => {
-    res.send('inventory delete endpoint called')
+app.post('/inventory/delete/:id', async (req, res) => {
+    const carList = await db.cars.findAll();
+
+    await db.cars.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+     res.render('inventory', {list : carList})
+    //res.send(`car with id:${req.params.id} was deleted`)
 })
 
 app.put('/inventory/edit/:id', (req, res) => {
@@ -39,7 +64,8 @@ app.put('/inventory/edit/:id', (req, res) => {
 
 //user DB endpoints
 app.get('/user', (req, res) => {
-    res.send('user get endpoint called')
+
+    res.render('login' )
 })
 
 app.post('/user', (req, res) => {
