@@ -38,4 +38,15 @@ router.post("/post", authCheck, async (req, res) => {
   }
 });
 
+router.post("/delete/:id", authCheck, async (req, res) => {
+
+  await post.destroy({
+    where: {
+      id: req.params.id
+    }
+  });
+res.redirect("/profile")
+
+})
+  
 module.exports = router;
