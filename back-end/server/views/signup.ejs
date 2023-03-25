@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Login</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dealership Info</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li>
+   
+            <li class="nav-item">
+              <a class="nav-link" style="color: aliceblue;" href="/auth/signup">Sign Up</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <main style="padding: 3rem">
+    <form  action="/auth/signup" method="POST">                 <!--The route is for the authentication from our local database-->
+      <div class="form-group" style="display: flex; justify-content: space-between;">
+        <div style="width: 40%;">
+        <label for="fstname">First Name</label>
+        <input class="form-control name" type="text" placeholder="Enter First Name" name="fstname" required></div>
+        <div style="width:40%;">
+        <label for="lstname"><b>Last Name</b></label>
+        <input class="form-control name" type="text" placeholder="Enter Last Name" name="lstname" required></div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>  <!--Login with email and password-->
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+          name="username"
+        />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="Password"
+          placeholder="Password"
+          name="password"
+        />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="Confirm Password">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="Confirm Password"
+          placeholder="Confirm Your Password"
+          name="Confirm Password"
+        />
+      </div>
+      <br />
+     <div style="display: flex">
+      <p> <input type="checkbox"> By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    </div>
+    <button class="btn btn-primary">Sign up</button>
+      
+    </form>
+  </main>
+</body>
+</html>

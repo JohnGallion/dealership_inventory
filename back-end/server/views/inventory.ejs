@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Inventory</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Inventory Lab</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+  
+              <li class="nav-item">
+                <a class="nav-link" style="color: aliceblue;" href="/back-end/server/views/login.ejs">Login</a>
+              </li>
+     
+              <li class="nav-item">
+                <a class="nav-link" href="/back-end/server/views/signup.ejs">Sign Up</a>
+              </li>
+  
+            </ul>
+          </div>
+        </div>
+      </nav>
+        <div class="title">
+            <h1 style="text-align: center;">My Inventory</h1>
+            <form action="/inventory" method="post">
+            <div class="row">
+              <div class="col">
+                <input type="text" value="make" class="form-control" placeholder="Make" >
+              </div>
+              <div class="col">
+                <input type="text" value="model" class="form-control" placeholder="Model" >
+              </div>
+              <div class="col">
+                <input type="text" value="year" class="form-control" placeholder="Year" >
+              </div>
+              <div class="col">
+                <input type="text" value="mileage" class="form-control" placeholder="Mileage" >
+              </div>
+              <div class="col">
+                <input type="text" value="price" class="form-control" placeholder="Price" >
+              </div>
+              <div class="col">
+              <button type="submit"  class="btn btn-primary mb-3">Add Vehicle</button>
+            </div>
+            </div>
+            </form>
+        </div>
+        <div class="container">
+        <% if (list.lenght == 0) { %>
+            <h3>Your Inventory is empty</h3>
+        <% } else { %>
+            <% list.forEach(function(cars) { %>
+        <div class="row">
+            <div class="card md-4">
+              <div class="card-body">      
+                <p class="card-text"><b>Make:</b> <%= cars.make %></p>
+                <p class="card-text"><b>Model:</b> <%= cars.model %></p>
+                <p class="card-text"><b>Year:</b> <%= cars.year %></p>
+                <p class="card-text"><b>Mileage:</b> <%= cars.mileage %></p>
+                <p class="card-text"><b>Price:</b> $<%= cars.price %></p>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Sold
+                  </label>
+                </div>
+                <form action="/inventory/delete/<%= cars.id %>" method="POST" >
+                  <input type="hidden" name="_method" value="DELETE" />
+                <button type="submit" value="<%= cars.id %>" class="btn btn-danger">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% })} %>
+        </div>
+</body>
+</html>
